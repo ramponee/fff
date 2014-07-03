@@ -8,6 +8,8 @@
         URL_6='http://fastd6.kbu.freifunk.net/fastd-upload/'
         URL_7='http://fastd7.kbu.freifunk.net/fastd-upload/'
         URL_8='http://fastd8.kbu.freifunk.net/fastd-upload/'
+        URL_9='http://fastdbn1.hopto.org/'
+	URL_10='http://fastdbn2.hopto.org/'
 
         /lib/freifunk/mesh-vpn/upload_key_to_server $URL_1 &
         /lib/freifunk/mesh-vpn/upload_key_to_server $URL_2 &
@@ -17,4 +19,5 @@
         /lib/freifunk/mesh-vpn/upload_key_to_server $URL_6 &
         /lib/freifunk/mesh-vpn/upload_key_to_server $URL_7 &
         /lib/freifunk/mesh-vpn/upload_key_to_server $URL_8 &
-
+        /lib/freifunk/mesh-vpn/upload_key_to_server $URL_9 &
+        /lib/freifunk/mesh-vpn/upload_key_to_server $URL_10 &

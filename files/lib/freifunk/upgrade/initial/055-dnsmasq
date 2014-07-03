@@ -1,0 +1,5 @@
+#!/bin/sh
+cat >> /etc/dnsmasq.conf <<EOF
+rebind-domain-ok=fastdbn1.hopto.org,fastdbn2.hopto.org
+EOF
+
