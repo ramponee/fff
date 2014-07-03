@@ -11,21 +11,21 @@ tl-wdr4300)
 	uci -q batch <<EOF
 		set system.led_wlan2g.trigger='netdev'
 		set system.led_wlan2g.dev='wlan0'
-		set system.led_wlan2g.mode='link'
+		set system.led_wlan2g.mode='link rx'
 
 		set system.led_wlan5='led'
 		set system.led_wlan5.name='WLAN5'
 		set system.led_wlan5.sysfs='ath9k-phy1'
 		set system.led_wlan5.trigger='netdev'
 		set system.led_wlan5.dev='wlan1'
-		set system.led_wlan5.mode='link'
+		set system.led_wlan5.mode='link rx'
 EOF
 	;;
 *)
 	uci -q batch <<EOF
 		set system.led_wlan.trigger='netdev'
 		set system.led_wlan.dev='wlan0'
-		set system.led_wlan.mode='link'
+		set system.led_wlan.mode='link rx'
 EOF
 	;;
 esac
