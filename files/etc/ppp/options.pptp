@@ -1,0 +1,11 @@
+noauth
+nobsdcomp
+nodeflate
+idle 0
+#defaultroute
+maxfail 0
+noccp 
+nomppe
+replacedefaultroute
+lcp-echo-failure 5
+lcp-echo-interval 120
