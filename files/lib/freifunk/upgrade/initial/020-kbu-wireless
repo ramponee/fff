@@ -18,13 +18,17 @@ uci -q batch <<EOF
 set wireless.radio0.channel='1'
 set wireless.radio0.htmode='HT40+'
 set wireless.radio0.country='DE'
+set wireless.radio0.noscan='1'
+
 
 set wireless.wifi_freifunk='wifi-iface'
 set wireless.wifi_freifunk.device='radio0'
 set wireless.wifi_freifunk.network='freifunk'
 set wireless.wifi_freifunk.mode='ap'
 set wireless.wifi_freifunk.ssid='kbu.freifunk.net'
-set wireless.wifi_freifunk.mcast_rate='2000'
+set wireless.wifi_freifunk.mcast_rate='12000'
+set wireless.wifi_freifunk.beacon_int='198'
+set wireless.wifi_freifunk.dtim_period='3'
 
 set wireless.wifi_mesh='wifi-iface'
 set wireless.wifi_mesh.device='radio0'
@@ -33,6 +37,30 @@ set wireless.wifi_mesh.mode='adhoc'
 set wireless.wifi_mesh.ssid='02:d1:11:37:fc:39'
 set wireless.wifi_mesh.bssid='02:d1:11:37:fc:39'
 set wireless.wifi_mesh.mcast_rate='12000'
+set wireless.wifi_mesh.beacon_int='199'
+
+set wireless.wifi_lan='wifi-iface'
+set wireless.wifi_lan.device='radio0'
+set wireless.wifi_lan.network='lan'
+set wireless.wifi_lan.mode='ap'
+set wireless.wifi_lan.ssid='PrivatesLan'
+set wireless.wifi_lan.encryption='psk2'
+set wireless.wifi_lan.key='unsicherbittewechseln'
+set wireless.wifi_lan.mcast_rate='12000'
+set wireless.wifi_lan.beacon_int='201'
+set wireless.wifi_lan.dtim_period='3'
+
+set wireless.wifi_wan='wifi-iface'
+set wireless.wifi_wan.device='radio0'
+set wireless.wifi_wan.network='wan'
+set wireless.wifi_wan.mode='ap'
+set wireless.wifi_wan.ssid='Netzwerkdose'
+set wireless.wifi_wan.encryption='psk2'
+set wireless.wifi_wan.key='unsicherbittewechseln'
+set wireless.wifi_wan.mcast_rate='12000'
+set wireless.wifi_wan.beacon_int='200'
+set wireless.wifi_wan.dtim_period='3'
+
 commit wireless
 EOF
 
@@ -44,12 +72,15 @@ delete wireless.@wifi-iface[0]
 set wireless.radio1.channel='44'
 set wireless.radio1.htmode='HT40+'
 set wireless.radio1.country='DE'
+set wireless.radio1.noscan='1'
 set wireless.wifi_freifunk5='wifi-iface'
 set wireless.wifi_freifunk5.device='radio1'
 set wireless.wifi_freifunk5.network='freifunk'
 set wireless.wifi_freifunk5.mode='ap'
 set wireless.wifi_freifunk5.ssid='kbu.freifunk.net'
 set wireless.wifi_freifunk5.mcast_rate='12000'
+set wireless.wifi_freifunk5.beacon_int='204'
+set wireless.wifi_freifunk5.dtim_period='3'
 
 set wireless.wifi_freifunk5a='wifi-iface'
 set wireless.wifi_freifunk5a.device='radio1'
@@ -57,6 +88,9 @@ set wireless.wifi_freifunk5a.network='freifunk'
 set wireless.wifi_freifunk5a.mode='ap'
 set wireless.wifi_freifunk5a.ssid='kbu.freifunk.net (5GHz)'
 set wireless.wifi_freifunk5a.mcast_rate='12000'
+set wireless.wifi_freifunk5a.beacon_int='203'
+set wireless.wifi_freifunk5a.dtim_period='3'
+
 
 set wireless.wifi_mesh5='wifi-iface'
 set wireless.wifi_mesh5.device='radio1'
@@ -65,7 +99,32 @@ set wireless.wifi_mesh5.mode='adhoc'
 set wireless.wifi_mesh5.ssid='02:d1:11:37:fc:59'
 set wireless.wifi_mesh5.bssid='02:d1:11:37:fc:59'
 set wireless.wifi_mesh5.mcast_rate='12000'
+set wireless.wifi_mesh5.beacon_int='202'
 set batman-adv.bat0.interfaces='mesh-vpn mesh mesh5'
+
+
+set wireless.wifi_wan5='wifi-iface'
+set wireless.wifi_wan5.device='radio1'
+set wireless.wifi_wan5.network='wan'
+set wireless.wifi_wan5.mode='ap'
+set wireless.wifi_wan5.ssid='Netzwerkdose'
+set wireless.wifi_wan5.encryption='psk2'
+set wireless.wifi_wan5.key='unsicherbittewechseln'
+set wireless.wifi_wan5.mcast_rate='12000'
+set wireless.wifi_wan5.beacon_int='201'
+set wireless.wifi_wan5.dtim_period='3'
+
+set wireless.wifi_lan5='wifi-iface'
+set wireless.wifi_lan5.device='radio1'
+set wireless.wifi_lan5.network='lan'
+set wireless.wifi_lan5.mode='ap'
+set wireless.wifi_lan5.ssid='PrivatesLan'
+set wireless.wifi_lan5.encryption='psk2'
+set wireless.wifi_lan5.key='unsicherbittewechseln'
+set wireless.wifi_lan5.mcast_rate='12000'
+set wireless.wifi_lan5.beacon_int='200'
+set wireless.wifi_lan5.dtim_period='3'
+
 commit
 EOF
 fi

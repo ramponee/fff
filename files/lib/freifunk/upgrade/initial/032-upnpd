@@ -1,0 +1,10 @@
+#!/bin/sh
+
+
+uci -q batch <<EOF
+
+	set upnpd.@perm_rule[0].ext_ports=0-65535
+	commit upnpd
+
+EOF
+

@@ -1,0 +1,25 @@
+#!/bin/sh
+
+
+uci -q batch <<EOF
+	set dhcp.lan.limit='235'
+	set dhcp.lan.leasetime='36h'
+	set dhcp.lan.dhcp_option='6,192.168.1.10,192.168.1.130'
+	commit dhcp
+EOF
+cat >> /etc/config/dhcp <<EOF
+config dhcp 'wan2'
+        option interface       'wan2'
+        option ignore   '1'
+
+config dhcp wan3
+        option interface       'wan3'
+        option ignore  '1'
+
+config dhcp freifunk
+        option interface        'freifunk'
+        option ignore  '1'
+
+EOF
+
+/etc/init.d/dnsmasq restart

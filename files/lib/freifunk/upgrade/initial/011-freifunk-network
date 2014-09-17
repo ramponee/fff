@@ -12,12 +12,33 @@ uci -q batch <<EOF
 delete network.lan
 delete network.wan6
 
+
+set network.wan2='interface'
+set network.wan2.proto='pptp'
+set network.wan2.ifname='pptp-vpn'
+set network.wan2.server='vpn.stw-bonn.de'
+set network.wan2.username='zXXXXX'
+set network.wan2.password='CANIHAZSECRITINHERE'
+
+set network.localnet='route'
+set network.localnet.interface='wan'
+set network.localnet.target='192.168.0.0'
+set network.localnet.netmask='255.255.0.0'
+set network.localnet.gateway='192.168.72.1'
+
 set network.wan='interface'
 set network.wan.type='bridge'
 set network.wan.proto='dhcp'
 set network.wan.accept_ra='0'
 set network.wan.auto='1'
-set network.wan.ifname='$lan_ifname'
+set network.wan.ifname='$wan_ifname'
+
+set network.lan='interface'
+set network.lan.type='bridge'
+set network.lan.proto='static'
+set network.lan.ipaddr='10.42.69.1'
+set network.lan.netmask='255.255.255.0'
+set network.lan.ifname='$lan_ifname'
 
 set network.freifunk='interface'
 EOF
@@ -28,7 +49,7 @@ then
 		uci set network.freifunk.ifname="bat0"
 		uci set network.wan.ifname="$lan_ifname"
 else
-		uci set network.freifunk.ifname="$wan_ifname bat0"
+		uci set network.freifunk.ifname="bat0"
 fi
 
 uci -q batch <<EOF
